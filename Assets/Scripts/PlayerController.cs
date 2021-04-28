@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
             if (jumpCount < 2)
             {
                 jumpCount++;
+                animator.SetFloat("JumpCount", jumpCount);
                 rb.AddForce(0, thrust, 0, ForceMode.Impulse);
             }    
         }

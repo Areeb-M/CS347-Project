@@ -21,11 +21,12 @@ public class CharGrounded : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.tag);
         if (other.tag == "Ground")
         {
             pc.isGrounded = true;
             pc.jumpCount = 0;
+            print(pc.jumpCount);
+            pc.animator.SetFloat("JumpCount", 0f);
         }
 
     }
