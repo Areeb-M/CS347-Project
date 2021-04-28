@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float thrust = 1.0f;
     public Rigidbody rb;
     public Animator animator;
+    public int oxygenLevel = 100;
 
     //[Header("Set Dynamically")]
     public int jumpCount = 0;
@@ -19,7 +20,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InvokeRepeating("ReduceOxygen", 1f, 10f);  //10s delay, repeat every 1s
+    }
 
+    void ReduceOxygen()
+    {
+        oxygenLevel--;
+        Debug.Log(oxygenLevel);
     }
 
     // Update is called once per frame

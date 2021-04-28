@@ -25,7 +25,6 @@ public class CharGrounded : MonoBehaviour
         {
             pc.isGrounded = true;
             pc.jumpCount = 0;
-            print(pc.jumpCount);
             pc.animator.SetFloat("JumpCount", 0f);
         }
 
