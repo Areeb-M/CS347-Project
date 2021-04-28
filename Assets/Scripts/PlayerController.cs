@@ -64,16 +64,4 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        print(other.tag);
-        if (other.tag == "Ground")
-        {
-            isGrounded = true;
-            jumpCount = 0;
-        }
-
-    }
-
 }
