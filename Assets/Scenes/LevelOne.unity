@@ -121,6 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +300,7 @@ Transform:
 --- !u!1 &1828549143
 GameObject:
   m_ObjectHideFlags: 0
+
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -348,3 +350,4 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 2362357209677360113, guid: dc604eb94edbfeb459c2a0cc266fa0c0,
     type: 3}
   Camera: {fileID: 963194225}
+
