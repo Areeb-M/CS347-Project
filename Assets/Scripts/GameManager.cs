@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float[] OxygenTimeLimits;
     public GameObject PlayerPrefab;
     public GameObject Camera;
+    public PlayerController pc;
 
     // Start is called before the first frame update
     void Start()
@@ -86,11 +87,13 @@ public class GameManager : MonoBehaviour
 
     public static void KillPlayer()
     {
+        game_manager.player.GetComponent<PlayerController>().Death();
         game_manager.ResetPlayer();
+        Invoke("game_manager.ResetPlayer", 5.0f)
     }
 
     public static int GetPoints()
     {
         return game_manager.points;
-    }
+    }    
 }

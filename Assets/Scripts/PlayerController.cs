@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("ReduceOxygen", 1f, 10f);  //10s delay, repeat every 1s
+        InvokeRepeating("ReduceOxygen", 1f, 10f);  //1s delay, repeat every 10s
     }
 
     void ReduceOxygen()
@@ -71,5 +71,10 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
+    }
+
+    public void Death()
+    {
+        animator.SetBool("Dead", true);
     }
 }
