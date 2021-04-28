@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 960423442950920533}
   - component: {fileID: 7905843346472742599}
   - component: {fileID: 5482613935299313824}
-  - component: {fileID: 3448374532128340629}
+  - component: {fileID: 3596655108479939661}
   m_Layer: 0
   m_Name: AstronautSprite
   m_TagString: Untagged
@@ -132,6 +132,7 @@ MonoBehaviour:
   moveSpeed: 5
   thrust: 5
   rb: {fileID: 960423442950920533}
+  animator: {fileID: 3596655108479939661}
   jumpCount: 0
   isGrounded: 0
   isDead: 0
@@ -148,19 +149,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.0324727
   m_Center: {x: 0, y: -5.7, z: 0}
---- !u!114 &3448374532128340629
-MonoBehaviour:
+--- !u!95 &3596655108479939661
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193679316375720371}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e205191d58f07f45bf153dffa685397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7905843346472742599}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a836cd266be106440a4f4043a7c46c16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1000411503843600424
 GameObject:
   m_ObjectHideFlags: 0
