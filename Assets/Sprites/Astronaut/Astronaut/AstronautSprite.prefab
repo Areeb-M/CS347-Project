@@ -116,7 +116,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!114 &7905843346472742599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   thrust: 5
   rb: {fileID: 960423442950920533}
   animator: {fileID: 3596655108479939661}
+  oxygenLevel: 100
   jumpCount: 0
   isGrounded: 0
   isDead: 0

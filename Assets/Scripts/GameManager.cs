@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         player.transform.position = new Vector3(0, 1, 0);
         player.GetComponent<Rigidbody>().velocity = new Vector3();
+        player.GetComponent<PlayerController>().PlayerReset();
     }
 
     private void ResetGame()
