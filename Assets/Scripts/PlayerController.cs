@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isDead)
         {
             //Checks if max jump count was reached
             if (jumpCount < 2)
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Move Left
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && !isDead)
         {
             transform.position = transform.position += transform.right * -moveSpeed * Time.deltaTime;
             Vector3 theScale = transform.localScale;
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Move Right
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !isDead)
         {
             transform.position = transform.position += transform.right * moveSpeed * Time.deltaTime;
             Vector3 theScale = transform.localScale;
@@ -76,12 +76,14 @@ public class PlayerController : MonoBehaviour
     public void Death()
     {
         animator.SetBool("Dead", true);
+        isDead = true;
         rb.isKinematic = true;
     }
 
     public void PlayerReset()
     {
         animator.SetBool("Dead", false);
+        isDead = false;
         rb.isKinematic = false;
     }
 }
