@@ -6,6 +6,8 @@ public class Objective : MonoBehaviour
 {
     public int PointValue;
     public bool AdvanceLevel;
+
+    private bool beenTriggered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +22,14 @@ public class Objective : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (beenTriggered)
+            return;
+
+        beenTriggered = true;
         GameManager.AddPoints(PointValue);
         if (AdvanceLevel)
             GameManager.AdvanceLevel();
 
-        Destroy(this.gameObject, 0.1f);
+        Destroy(this.gameObject);
     }
 }

@@ -26,6 +26,6 @@ public class Obstacle : MonoBehaviour
             GameManager.KillPlayer();
 
         if (!RespawnObstacle)
-            Destroy(this.gameObject, 0.1f);
+            Destroy(this.gameObject);
     }
 }
