@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class GameManager : MonoBehaviour
         // Create player
         player = Instantiate(PlayerPrefab);
 
+        // Reset Game
+        ResetGame();
+
         // Load Level 0
         LoadLevel();
 
@@ -45,6 +49,12 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Rigidbody>().velocity = new Vector3();
     }
 
+    private void ResetGame()
+    {
+        level_id = 0;
+        points = 0;
+    }
+
     private void LoadLevel()
     {
         level = Instantiate(LevelPrefabs[level_id]);
@@ -54,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     private void Win()
     {
-        // Transition to winning scene
+        SceneManager.LoadScene("Win Scene");
     }
 
     public static void AddPoints(int points)
@@ -77,5 +87,10 @@ public class GameManager : MonoBehaviour
     public static void KillPlayer()
     {
         game_manager.ResetPlayer();
+    }
+
+    public static int GetPoints()
+    {
+        return game_manager.points;
     }
 }
