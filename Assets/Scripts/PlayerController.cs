@@ -10,24 +10,29 @@ public class PlayerController : MonoBehaviour
     public float thrust = 1.0f;
     public Rigidbody rb;
     public Animator animator;
-    public int oxygenLevel = 100;
+    public AudioSource footSteps;
+    //public int oxygenLevel = 100;
 
     //[Header("Set Dynamically")]
     public int jumpCount = 0;
     public bool isGrounded = false;
     public bool isDead = false;
+    private bool walking = false;
+    private bool walkingSound = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //InvokeRepeating("ReduceOxygen", 1f, 10f);  //1s delay, repeat every 10s
+        footSteps = GetComponent<AudioSource>();
     }
 
-    void ReduceOxygen()
-    {
-        oxygenLevel--;
-        Debug.Log(oxygenLevel);
-    }
+    //void ReduceOxygen()
+    //{
+    //    oxygenLevel--;
+    //    Debug.Log(oxygenLevel);
+    //}
 
     // Update is called once per frame
     void Update()
@@ -52,10 +57,14 @@ public class PlayerController : MonoBehaviour
             theScale.x = -.2f;
             transform.localScale = theScale;
             animator.SetFloat("Speed", 1);
+            walking = true;
+            Walking();
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
             animator.SetFloat("Speed", 0);
+            walking = false;
+            Walking();
         }
 
         //Move Right
@@ -66,10 +75,14 @@ public class PlayerController : MonoBehaviour
             theScale.x = .2f;
             transform.localScale = theScale;
             animator.SetFloat("Speed", 1);
+            walking = true;
+            Walking();
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
             animator.SetFloat("Speed", 0);
+            walking = false;
+            Walking();
         }
     }
 
@@ -85,5 +98,22 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Dead", false);
         isDead = false;
         rb.isKinematic = false;
+    }
+
+    public void Walking()
+    {
+        if(walking && jumpCount == 0)
+        {
+            if (!walkingSound)
+            {
+                footSteps.Play();
+                walkingSound = true;
+            }
+        }
+        else if(!walking || jumpCount > 0)
+        {
+            footSteps.Stop();
+            walkingSound = false;
+        }
     }
 }
