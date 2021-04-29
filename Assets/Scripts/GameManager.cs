@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
     {
         Camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, Camera.transform.position.z);
         oxygen_timer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.N))
+            AdvanceLevel();
     }
 
     private void ResetPlayer()
@@ -59,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     private void LoadLevel()
     {
+        Destroy(level);
+
         level = Instantiate(LevelPrefabs[level_id]);
         oxygen_timer = OxygenTimeLimits[level_id];
         ResetPlayer();
