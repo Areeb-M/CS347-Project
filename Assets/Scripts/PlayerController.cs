@@ -56,9 +56,12 @@ public class PlayerController : MonoBehaviour
             Vector3 theScale = transform.localScale;
             theScale.x = -.2f;
             transform.localScale = theScale;
-            animator.SetFloat("Speed", 1);
-            walking = true;
-            Walking();
+            if (isGrounded)
+            {
+                animator.SetFloat("Speed", 1);
+                walking = true;
+                Walking();
+            }
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
@@ -74,9 +77,12 @@ public class PlayerController : MonoBehaviour
             Vector3 theScale = transform.localScale;
             theScale.x = .2f;
             transform.localScale = theScale;
-            animator.SetFloat("Speed", 1);
-            walking = true;
-            Walking();
+            if(isGrounded)
+            {
+                animator.SetFloat("Speed", 1);
+                walking = true;
+                Walking();
+            }
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
