@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
 
         // Load Level 0
         LoadLevel();
-
     }
 
     // Update is called once per frame
