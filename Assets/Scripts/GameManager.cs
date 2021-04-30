@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
     public static void KillPlayer()
     {
         game_manager.player.GetComponent<PlayerController>().Death();
-        game_manager.Invoke("ResetPlayer", 2.0f);
+        game_manager.Invoke("ResetPlayer", 4f);
     }
 
     public static int GetPoints()

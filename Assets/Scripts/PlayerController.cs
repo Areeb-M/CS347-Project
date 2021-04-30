@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float thrust = 1.0f;
     public Rigidbody rb;
     public Animator animator;
-    public AudioSource footSteps;
+    public AudioSource[] sounds;
     //public int oxygenLevel = 100;
 
     //[Header("Set Dynamically")]
@@ -25,7 +25,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //InvokeRepeating("ReduceOxygen", 1f, 10f);  //1s delay, repeat every 10s
-        footSteps = GetComponent<AudioSource>();
+        //footSteps = GetComponent<AudioSource>();
+        //jump = GetComponent<AudioSource1>();
+        //death = GetComponent<AudioSource>();
+        sounds = GetComponents<AudioSource>();
     }
 
     //void ReduceOxygen()
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
                 jumpCount++;
                 animator.SetFloat("JumpCount", jumpCount);
                 rb.AddForce(0, thrust, 0, ForceMode.Impulse);
+                sounds[1].Play();
             }    
         }
 
@@ -97,6 +101,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Dead", true);
         isDead = true;
         rb.isKinematic = true;
+        sounds[2].Play();
     }
 
     public void PlayerReset()
@@ -112,13 +117,13 @@ public class PlayerController : MonoBehaviour
         {
             if (!walkingSound)
             {
-                footSteps.Play();
+                sounds[0].Play();
                 walkingSound = true;
             }
         }
         else if(!walking || jumpCount > 0)
         {
-            footSteps.Stop();
+            sounds[0].Stop();
             walkingSound = false;
         }
     }
