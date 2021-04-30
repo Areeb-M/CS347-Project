@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  thrust: 5
+  thrust: 5.5
   rb: {fileID: 960423442950920533}
   animator: {fileID: 3596655108479939661}
   sounds: []
