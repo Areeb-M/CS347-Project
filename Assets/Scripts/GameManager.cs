@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerPrefab;
     public GameObject Camera;
     public PlayerController pc;
+
+    public Text score_labal;
+    public Text oxygen_label;
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +47,11 @@ public class GameManager : MonoBehaviour
         Camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, Camera.transform.position.z);
         oxygen_timer -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N) && Input.GetKey(KeyCode.LeftShift))
             AdvanceLevel();
+
+        score_labal.text = "Score: " + points;
+        oxygen_label.text = "Oxygen: " + (int)oxygen_timer;
     }
 
     private void ResetPlayer()
