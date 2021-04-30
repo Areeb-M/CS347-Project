@@ -45,7 +45,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, Camera.transform.position.z);
-        oxygen_timer -= Time.deltaTime;
+
+        if (!player.GetComponent<PlayerController>().isDead)
+        {
+            oxygen_timer -= Time.deltaTime;
+
+            if (oxygen_timer < 0)
+                KillPlayer();
+        }
 
         if (Input.GetKeyDown(KeyCode.N) && Input.GetKey(KeyCode.LeftShift))
             AdvanceLevel();
@@ -59,6 +66,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = new Vector3(0, 1, 0);
         player.GetComponent<Rigidbody>().velocity = new Vector3();
         player.GetComponent<PlayerController>().PlayerReset();
+        oxygen_timer = OxygenTimeLimits[level_id];
     }
 
     private void ResetGame()

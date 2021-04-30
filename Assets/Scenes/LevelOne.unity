@@ -652,9 +652,9 @@ MonoBehaviour:
   - {fileID: 7193710252875819800, guid: d1aaeb62cf1c3eb45849c2156bd4bc80, type: 3}
   - {fileID: 7193710252875819800, guid: 5d62197e84ff9554c92b94cf09534c5f, type: 3}
   OxygenTimeLimits:
-  - 0
-  - 0
-  - 0
+  - 10
+  - 60
+  - 90
   PlayerPrefab: {fileID: 193679316375720371, guid: 4e8af5ac76a5923469e85ca848a17f5b,
     type: 3}
   Camera: {fileID: 963194225}
