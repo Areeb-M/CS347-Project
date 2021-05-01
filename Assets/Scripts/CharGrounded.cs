@@ -32,6 +32,7 @@ public class CharGrounded : MonoBehaviour
     {
         if (other.tag == "Ground")
         {
+            print("not grounded");
             pc.isGrounded = false;
             pc.animator.SetFloat("Speed", 0f);
         }
