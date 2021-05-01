@@ -6,7 +6,6 @@ public class Key : MonoBehaviour
 {
     public GameObject Gate;
 
-
     private void OnTriggerEnter(Collider other)
     {
         Gate.SetActive(false);

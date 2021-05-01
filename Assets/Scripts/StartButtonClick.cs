@@ -21,7 +21,6 @@ public class StartButtonClick : MonoBehaviour
 
     public void OnContinueClick()
     {
-        //SceneManager.LoadScene("LevelOne");
         Invoke("StartLevelOne", 2.0f);
     }
 

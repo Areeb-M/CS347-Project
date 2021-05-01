@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public Text score_labal;
     public Text oxygen_label;
 
+    public AudioSource[] sounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,9 @@ public class GameManager : MonoBehaviour
 
         // Load Level 0
         LoadLevel();
+
+        // Load Sounds
+        sounds = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -90,6 +95,7 @@ public class GameManager : MonoBehaviour
 
     public static void AddPoints(int points)
     {
+        game_manager.sounds[0].Play();
         game_manager.points += points;
         Debug.Log(game_manager.points);
     }
