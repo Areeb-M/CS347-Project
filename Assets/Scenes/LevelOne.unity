@@ -655,7 +655,7 @@ MonoBehaviour:
   - {fileID: 7193710252875819800, guid: 7e68b1fac6ecfc649be6ffa1068ef15a, type: 3}
   OxygenTimeLimits:
   - 60
-  - 120
+  - 90
   - 60
   PlayerPrefab: {fileID: 193679316375720371, guid: 4e8af5ac76a5923469e85ca848a17f5b,
     type: 3}

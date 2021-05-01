@@ -102,6 +102,8 @@ public class GameManager : MonoBehaviour
 
     public static void AdvanceLevel()
     {
+        AddPoints((int)game_manager.oxygen_timer * 25);
+
         if (game_manager.level_id < game_manager.LevelPrefabs.Length - 1)
         {
             game_manager.level_id += 1;
